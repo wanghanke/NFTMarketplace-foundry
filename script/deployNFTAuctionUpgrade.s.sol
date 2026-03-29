@@ -19,7 +19,7 @@ contract UpgradeMyNFT is Script {
          *  Deploy new implementation
          */
         NFTAuction newImplementation = new NFTAuction();
-        console.log("MyNFT newImplementation:",address(myNFTImplementation));
+        console.log("MyNFT newImplementation:",address(newImplementation));
 
         /**
          *  Upgrade proxy -> new implementation
