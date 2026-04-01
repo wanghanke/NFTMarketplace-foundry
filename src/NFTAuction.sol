@@ -123,7 +123,6 @@ contract NFTAuction is Initializable, IERC721Receiver, OwnableUpgradeable, Reent
         platformFeeReceiver = _platformFeeReceiver;
         minBidIncrementBps = 500;
         platformFee = 200;
-        MAX_EXTENSION = 30 minutes;
     }
 
     function onERC721Received(address, address,uint256,bytes calldata) external pure returns (bytes4) {
