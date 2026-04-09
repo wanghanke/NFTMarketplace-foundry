@@ -164,6 +164,7 @@ contract NFTAuction is Initializable, IERC721Receiver, OwnableUpgradeable, Reent
             endTime: endTime,
             active: true
         });
+        auctionIds.push(auctionCount);
 
         nft.safeTransferFrom(owner, address(this), tokenId);
 
@@ -353,6 +354,14 @@ contract NFTAuction is Initializable, IERC721Receiver, OwnableUpgradeable, Reent
         address oldRecipient = platformFeeReceiver;
         platformFeeReceiver = _newReceiver;
         emit PlatformFeeReceiverChanged(msg.sender, oldRecipient, _newReceiver);
+    }
+
+    function getAuctionCount() external view returns (uint256) {
+        return auctionCount;
+    }
+
+    function getAuction(uint256 auctionId) external view returns (Auction memory) {
+        return auctions[auctionId];
     }
 
     function pause() external onlyOwner {
