@@ -164,7 +164,6 @@ contract NFTAuction is Initializable, IERC721Receiver, OwnableUpgradeable, Reent
             endTime: endTime,
             active: true
         });
-        auctionIds.push(auctionCount);
 
         nft.safeTransferFrom(owner, address(this), tokenId);
 
